@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Free Psycholog Medical Hospital Website Template | Smarteyeapps.com</title>
+    <title data-gr="Δωρεάν Ψυχολογικό Νοσοκομείο Ιστοσελίδας | Smarteyeapps.com">Free Psycholog Medical Hospital Website Template | Smarteyeapps.com</title>
 
     <link rel="shortcut icon" href="assets/images/fav.jpg">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/plugins/slider/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/plugins/slider/css/owl.theme.default.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -19,6 +20,10 @@
     <!-- ################# Header Starts Here#######################--->
 
     <header id="menu-jk">
+        <button id="language-btn" class="active" onclick="toggleLanguage()">
+            <span id="lang-en" class="active-lang">EN</span>
+            <span id="lang-gr">GR</span>
+        </button>
         <nav class="">
             <div class="container">
                 <div class="row nav-ro">
@@ -28,14 +33,15 @@
                     </div>
                     <div id="menu" class="col-lg-7 col-md-8 d-none d-md-block no-padding">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about_us.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="contact_us.html">Contact Us</a></li>
+                            <li><a id="home-link" href="index.html"><span data-en="Home" data-gr="Αρχική"></span></a></li>
+                            <li><a id="about-link" href="about_me.html"><span data-en="About Me" data-gr="Ποιά είμαι"></span></a></li>
+                            <li><a id="services-link" href="services.html"><span data-en="Services" data-gr="Υπηρεσίες"></span></a></li>
+                            <li><a id="blog-link" href="publications.html"><span data-en="Publications" data-gr="Εκδόσεις"></span></a></li>
+                            <li><a id="gallery-link" href="gallery.html"><span data-en="Gallery" data-gr="Συλλογή"></span></a></li>
+                            <li><a id="contact-link" href="contact_us.html"><span data-en="Contact Me" data-gr="Επαφή"></span></a></li>
                         </ul>
                     </div>
+                    
                     <div class="col-sm-2 d-none d-lg-block">
                         <button class="btn btn-success">Book an Appointment</button>
                     </div>
@@ -311,6 +317,7 @@
     <script src="assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
     <script src="assets/plugins/slider/js/owl.carousel.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/language-toggle.js"></script>
 </body>
 
 </html>

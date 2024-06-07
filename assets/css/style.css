@@ -1,11 +1,12 @@
-/* ===================================== Import Less ================================== */
-@font-face {
-  font-family: 'mouse-300';
-  src: url("../fonts/PT_Sans-Web-Regular.ttf") format("truetype"); }
-@font-face {
-  font-family: 'mouse-500';
-  src: url("../fonts/PT_Sans-Web-Bold.ttf") format("truetype"); }
 /* ===================================== Basic CSS ================================== */
+#menu ul li a span {
+  font-weight: bold;
+}
+
+body {
+  font-family: sans-serif !important;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -75,15 +76,8 @@ p {
 .container-fluid {
   padding: 0px; }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "mouse-500", Arial, Helvetica, sans-serif; }
-
-strong {
-  font-family: "mouse-500", Arial, Helvetica, sans-serif; }
-
 body {
   background-color: #f7f7ff !important;
-  font-family: "mouse-300", Arial, Helvetica, sans-serif;
   color: #6A6A6A; }
 
 .session-title {
@@ -108,8 +102,7 @@ body {
   .inner-title h2 {
     width: 100%;
     text-align: center;
-    font-size: 2rem;
-    font-family: "slab", Arial, Helvetica, sans-serif; }
+    font-size: 2rem; }
   .inner-title p {
     width: 100%;
     text-align: center; }
@@ -197,6 +190,63 @@ body {
     background-color: #FFF;
     border-color: #CCC; }
 
+/*========language button toggle=========*/
+body {
+  margin: 0; /* Ensure no default margins */
+}
+
+#language-btn {
+  background: #ffffff;
+  border: 2px solid #007bff;
+  border-radius: 20px;
+  padding: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: auto; /* Adjusted to auto for dynamic sizing */
+  transition: background-color 0.3s ease;
+  outline: none; /* Remove black outline on focus */
+  position: absolute;
+  top: 20px; /* Adjust the top distance as needed */
+  left: 20px; /* Adjust the left distance as needed */
+  z-index: 1000; /* Ensure the button stays above other elements */
+}
+
+#language-btn:focus-visible {
+  box-shadow: 0 0 0 2px #007bff; /* Add focus indicator */
+}
+
+#language-btn span {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+#language-btn .active-lang {
+  color: #ffffff;
+  background-color: #007bff;
+  border-radius: 15px;
+}
+
+#language-btn span:not(.active-lang) {
+  color: #007bff;
+  background-color: transparent;
+}
+
+#lang-en {
+  border-top-left-radius: 20px; /* Adjusted for consistency */
+  border-bottom-left-radius: 20px; /* Adjusted for consistency */
+}
+
+#lang-gr {
+  border-top-right-radius: 20px; /* Adjusted for consistency */
+  border-bottom-right-radius: 20px; /* Adjusted for consistency */
+}
+
+
+
 /* ===================================== Header CSS ================================== */
 header {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -207,7 +257,6 @@ header {
   header ul li {
     float: left;
     padding: 30px 20px;
-    font-family: "mouse-500", Arial, Helvetica, sans-serif;
     font-size: 16px; }
     @media screen and (max-width: 824px) {
       header ul li {
@@ -219,13 +268,12 @@ header {
         border-top: 1px solid #CCC; } }
   header img {
     margin-top: 10px;
-    max-width: 230px; }
+    max-width: 230px;}
     @media screen and (max-width: 767px) {
       header img {
         margin-top: 5px;
         margin-bottom: 5px; } }
   header .btn {
-    font-family: "mouse-500", Arial, Helvetica, sans-serif;
     margin-top: 22px; }
 
 .scroll-to-fixed-fixed {
@@ -467,7 +515,6 @@ header {
       width: 100%; }
     .sesion-type .single-sess p {
       padding: 10px;
-      font-family: "mouse-500", Arial, Helvetica, sans-serif;
       border-radius: 5px;
       text-align: center; }
   .sesion-type .sess-ok {
