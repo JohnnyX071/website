@@ -6,7 +6,6 @@
 body {
   font-family: sans-serif !important;
 }
-
 * {
   margin: 0px;
   padding: 0px;
@@ -316,6 +315,38 @@ header {
   @media screen and (max-width: 405px) {
     .small-menu {
       margin-top: 14px; } }
+
+/* New CSS for hover effect */
+/* Your existing CSS */
+
+/* New CSS for hover effect */
+ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+}
+
+ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transform-origin: bottom;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+ul li a:hover {
+  color: #007bff;
+}
+
+ul li a:hover::after {
+  background-color: #007bff;
+  transform: scaleX(1);
+}
 
 /* ===================================== Slider Style CSS ================================== */
 .slider {
