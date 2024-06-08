@@ -1,4 +1,15 @@
 /* ===================================== Basic CSS ================================== */
+:root {
+  --primary-color: #1a0dab;
+  --hover-color: #8314cc;
+  --bg-color: #f4f4f9;
+  --card-bg: #fff;
+  --text-color: #333;
+  --border-color: #ccc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover-color: rgba(0, 0, 0, 0.3);
+  --transition-duration: 0.3s;
+}
 #menu ul li a span {
   font-weight: bold;
 }
@@ -270,6 +281,101 @@ body {
   border-bottom-right-radius: 20px; /* Adjusted for consistency */
 }
 
+/*==================================== Articles =====================================*/
+.article-container-wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+.articlecontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.articlecard {
+  border: none;
+  border-radius: 15px;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeIn var(--transition-duration) ease forwards;
+  flex: 1 0 300px; /* Maintain a fixed width of 300px */
+}
+
+.articlecard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 32px var(--shadow-hover-color);
+}
+
+.articleimage {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #f4f4f9 0%, #ddd 100%);
+  border-bottom: 1px solid var(--border-color);
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.articlecard:hover .articleimage {
+  transform: scale(1.05);
+}
+
+.articleinfo {
+  padding: 20px;
+  text-align: left;
+  flex: 1;
+}
+
+.articledate {
+  font-size: 0.85em;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.articletitle {
+  margin: 15px 0;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.articlelink {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-duration) ease;
+}
+
+.articlelink:hover {
+  color: var(--hover-color);
+}
+
+/* Adding subtle animation for a more modern feel */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.articlecard:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.articlecard:nth-child(even) {
+  animation-delay: 0.2s;
+}
 
 
 /* ===================================== Header CSS ================================== */
