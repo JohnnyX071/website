@@ -282,19 +282,27 @@ body {
 }
 
 /*==================================== Articles =====================================*/
+/* Main container */
 .article-container-wrapper {
-  max-width: 1200px;
+  max-width: 1600px; /* Increased max-width for container */
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
 }
 
+.articleinfo .articletitle {
+  font-size: 22px; /* Adjust the font size to your preference */
+}
+
+
+/* Grid settings */
 .articlecontainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Increased min-width to make boxes wider */
+  grid-template-columns: repeat(auto-fill, minmax(550px, 1fr)); /* Increased min-width to make boxes wider */
   gap: 20px;
 }
 
+/* Individual article card */
 .articlecard {
   border: none;
   border-radius: 15px;
@@ -306,32 +314,39 @@ body {
   flex-direction: column;
   opacity: 0;
   animation: fadeIn var(--transition-duration) ease forwards;
-  flex: 1 0 400px; /* Increased width to make the boxes wider */
+  flex: 1 0 500px; /* Increased width to make the boxes wider */
 }
 
+/* Hover effect */
 .articlecard:hover {
   transform: translateY(-10px);
   box-shadow: 0 16px 32px var(--shadow-hover-color);
 }
 
+/* Article info container */
 .articleinfo {
   padding: 20px;
   text-align: left;
   flex: 1;
 }
 
+/* Title styling */
 .articletitle {
   margin: 15px 0;
   font-size: 1.4em;
   font-weight: bold;
+  color: #00ab9f; /* Changed color to the desired value */
+  line-height: 1.2; /* Adjusted line-height to decrease space between lines */
 }
 
+/* Description styling */
 .articledescription {
   margin: 10px 0 20px;
   font-size: 1em;
   color: var(--text-color);
 }
 
+/* Link styling */
 .articlelink {
   color: var(--primary-color);
   text-decoration: none;
@@ -343,7 +358,7 @@ body {
   color: var(--hover-color);
 }
 
-/* Adding subtle animation for a more modern feel */
+/* Fade in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -355,6 +370,7 @@ body {
   }
 }
 
+/* Animation delay */
 .articlecard:nth-child(odd) {
   animation-delay: 0.1s;
 }
