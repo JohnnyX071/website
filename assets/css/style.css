@@ -10,6 +10,7 @@
   --shadow-hover-color: rgba(0, 0, 0, 0.3);
   --transition-duration: 0.3s;
 }
+
 #menu ul li a span {
   font-weight: bold;
 }
@@ -31,7 +32,9 @@ a {
   color: #444; }
 
 a:hover {
-  color: #444; }
+  color: #007bff; /* Adjusted hover color */
+}
+
 
 ul {
   margin-bottom: 0;
@@ -116,6 +119,11 @@ body {
   .inner-title p {
     width: 100%;
     text-align: center; }
+
+
+#menu-jk img {
+    margin-top: -5px; /* Adjust the top margin of the logo */
+}
 
 .page-nav {
   padding: 40px;
@@ -699,7 +707,7 @@ ul li a:hover::after {
 
 /* ===================================== Doctor Say CSS ================================== */
 .doctor-message {
-  background-image: url("../images/slider/slider-3.jpg");
+  background-image: url("../images/shapes.png");
   background-attachment: fixed;
   background-size: cover; }
   .doctor-message .inner-lay {
