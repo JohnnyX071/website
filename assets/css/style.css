@@ -26,15 +26,6 @@ body {
 img {
   max-width: 100%; }
 
-a {
-  text-decoration: none;
-  outline: none;
-  color: #444; }
-
-a:hover {
-  color: #007bff; /* Adjusted hover color */
-}
-
 
 ul {
   margin-bottom: 0;
