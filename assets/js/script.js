@@ -1,79 +1,64 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to toggle language and store preference
-    function toggleLanguage() {
-        var btn = document.getElementById('language-btn');
-        var isEnglish = btn.classList.contains('active');
+$( document ).ready(function() {
+    var w = window.innerWidth;
+   
+    if(w > 767){
+        $('#menu-jk').scrollToFixed();
+    }else{
+        $('#menu-jk').scrollToFixed();
+    }
+    
+})
+
+
+$( document ).ready(function() {
+
+     $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:0,
+        nav:true,
+        autoplay: true,
+        dots: true,
+        autoplayTimeout: 5000,
+        navText:['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+    })
+
+
+});
+
+$(document).ready(function(){
+
+    $(".filter-button").click(function(){
+        var value = $(this).attr('data-filter');
         
-        // Determine the current language and switch accordingly
-        if (isEnglish) {
-            // Switch to Greek
-            localStorage.setItem('language', 'GR');
-            switchLanguageToGreek();
-        } else {
-            // Switch to English
-            localStorage.setItem('language', 'EN');
-            switchLanguageToEnglish();
+        if(value == "all")
+        {
+            //$('.filter').removeClass('hidden');
+            $('.filter').show('1000');
         }
-    }
-
-    // Function to switch language to English
-    function switchLanguageToEnglish() {
-        var currentPath = window.location.pathname;
-        var newPath;
-        if (currentPath === "/" || currentPath === "") {
-            newPath = "/index.html";
-        } else if (currentPath.includes('_gr')) {
-            newPath = currentPath.replace('_gr', '');
-        } else {
-            newPath = currentPath;
+        else
+        {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+            
         }
-        window.location.href = newPath;
-    }
+    });
+    
+    if ($(".filter-button").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
 
-    // Function to switch language to Greek
-    function switchLanguageToGreek() {
-        var currentPath = window.location.pathname;
-        var newPath;
-        if (currentPath === "/" || currentPath === "") {
-            newPath = "/index_gr.html";
-        } else if (currentPath.includes('.html')) {
-            newPath = currentPath.replace('.html', '_gr.html');
-        } else {
-            newPath = currentPath + '_gr.html';
-        }
-        window.location.href = newPath;
-    }
-
-    // Function to initialize language toggle based on saved preference
-    function initializeLanguageToggle() {
-        var savedLanguage = localStorage.getItem('language');
-        var btn = document.getElementById('language-btn');
-        var langEn = document.getElementById('lang-en');
-        var langGr = document.getElementById('lang-gr');
-
-        // Set initial language based on saved preference or default to English
-        var isEnglish = savedLanguage === 'EN' || !savedLanguage; // Default to English if no preference is saved
-
-        // Update UI based on initial language
-        btn.classList.toggle('active', isEnglish);
-        langEn.classList.toggle('active-lang', isEnglish);
-        langGr.classList.toggle('active-lang', !isEnglish);
-
-        // Update content of text elements based on the saved language
-        var elements = document.querySelectorAll('[data-gr]');
-        elements.forEach(function(el) {
-            var enText = el.getAttribute('data-en') || el.textContent.trim();
-            var grText = el.getAttribute('data-gr').trim();
-            el.textContent = isEnglish ? enText : grText; // Update text content based on the saved language
-        });
-    }
-
-    // Event listener for the language toggle button
-    var languageBtn = document.getElementById('language-btn');
-    if (languageBtn) {
-        languageBtn.addEventListener('click', toggleLanguage);
-    }
-
-    // Initialize language toggle on page load
-    initializeLanguageToggle();
 });

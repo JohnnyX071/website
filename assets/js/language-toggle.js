@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function switchLanguageToEnglish() {
         var currentPath = window.location.pathname;
         var newPath;
-        if (currentPath === "/" || currentPath === "") {
-            newPath = "/index.html";
+        if (currentPath === "/" || currentPath === "/website/" || currentPath.endsWith('/')) {
+            newPath = currentPath + "index.html";
         } else if (currentPath.includes('_gr')) {
             newPath = currentPath.replace('_gr', '');
         } else {
@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function switchLanguageToGreek() {
         var currentPath = window.location.pathname;
         var newPath;
-        if (currentPath === "/" || currentPath === "") {
-            newPath = "/index_gr.html";
+        if (currentPath === "/" || currentPath === "/website/" || currentPath.endsWith('/')) {
+            newPath = currentPath + "index_gr.html";
         } else if (currentPath.includes('.html')) {
             newPath = currentPath.replace('.html', '_gr.html');
         } else {
