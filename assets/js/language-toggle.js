@@ -1,16 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Function to get the base path of the website
+    function getBasePath() {
+        var path = window.location.pathname;
+        if (path.includes('/website/')) {
+            return '/website/';
+        }
+        return '/';
+    }
+
     // Function to toggle language and store preference
     function toggleLanguage() {
         var btn = document.getElementById('language-btn');
         var isEnglish = btn.classList.contains('active');
         
-        // Determine the current language and switch accordingly
         if (isEnglish) {
-            // Switch to Greek
             localStorage.setItem('language', 'GR');
             switchLanguageToGreek();
         } else {
-            // Switch to English
             localStorage.setItem('language', 'EN');
             switchLanguageToEnglish();
         }
@@ -19,11 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to switch language to English
     function switchLanguageToEnglish() {
         var currentPath = window.location.pathname;
+        var basePath = getBasePath();
         var newPath;
-        if (currentPath === "/" || currentPath === "") {
-            newPath = "/index.html";
-        } else if (currentPath.includes('_gr')) {
-            newPath = currentPath.replace('_gr', '');
+
+        if (currentPath === basePath || currentPath === basePath + 'index_gr.html') {
+            newPath = basePath;
+        } else if (currentPath.includes('_gr.html')) {
+            newPath = currentPath.replace('_gr.html', '.html');
         } else {
             newPath = currentPath;
         }
@@ -33,13 +41,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to switch language to Greek
     function switchLanguageToGreek() {
         var currentPath = window.location.pathname;
+        var basePath = getBasePath();
         var newPath;
-        if (currentPath === "/" || currentPath === "") {
-            newPath = "/index_gr.html";
-        } else if (currentPath.includes('.html')) {
+
+        if (currentPath === basePath || currentPath === basePath + 'index.html') {
+            newPath = basePath + 'index_gr.html';
+        } else if (currentPath.endsWith('.html') && !currentPath.endsWith('_gr.html')) {
             newPath = currentPath.replace('.html', '_gr.html');
         } else {
-            newPath = currentPath + '_gr.html';
+            newPath = currentPath;
         }
         window.location.href = newPath;
     }
@@ -51,20 +61,17 @@ document.addEventListener('DOMContentLoaded', function() {
         var langEn = document.getElementById('lang-en');
         var langGr = document.getElementById('lang-gr');
 
-        // Set initial language based on saved preference or default to English
-        var isEnglish = savedLanguage === 'EN' || !savedLanguage; // Default to English if no preference is saved
+        var isEnglish = savedLanguage === 'EN' || !savedLanguage;
 
-        // Update UI based on initial language
         btn.classList.toggle('active', isEnglish);
         langEn.classList.toggle('active-lang', isEnglish);
         langGr.classList.toggle('active-lang', !isEnglish);
 
-        // Update content of text elements based on the saved language
         var elements = document.querySelectorAll('[data-gr]');
         elements.forEach(function(el) {
             var enText = el.getAttribute('data-en') || el.textContent.trim();
             var grText = el.getAttribute('data-gr').trim();
-            el.textContent = isEnglish ? enText : grText; // Update text content based on the saved language
+            el.textContent = isEnglish ? enText : grText;
         });
     }
 
