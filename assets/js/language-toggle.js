@@ -1,67 +1,75 @@
-function toggleLanguage() {
-    var btn = document.getElementById('language-btn');
-    var langEn = document.getElementById('lang-en');
-    var langGr = document.getElementById('lang-gr');
-    var elements = document.querySelectorAll('[data-gr]');
-    var isEnglish = btn.classList.contains('active');
-
-    if (isEnglish) {
-        // Switch to Greek
-        btn.classList.remove('active');
-        langEn.classList.remove('active-lang');
-        langGr.classList.add('active-lang');
-        elements.forEach(function(el) {
-            var enText = el.textContent.trim();
-            var grText = el.getAttribute('data-gr').trim();
-            el.setAttribute('data-en', enText); // Store the English version
-            el.textContent = grText; // Update to Greek
-        });
-        localStorage.setItem('language', 'GR'); // Save the language selection
-    } else {
-        // Switch to English
-        btn.classList.add('active');
-        langEn.classList.add('active-lang');
-        langGr.classList.remove('active-lang');
-        elements.forEach(function(el) {
-            var enText = el.getAttribute('data-en') || el.textContent.trim();
-            el.textContent = enText; // Retrieve the English version
-        });
-        localStorage.setItem('language', 'EN'); // Save the language selection
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to toggle language and store preference
+    function toggleLanguage() {
+        var btn = document.getElementById('language-btn');
+        var isEnglish = btn.classList.contains('active');
+        
+        // Determine the current language and switch accordingly
+        if (isEnglish) {
+            // Switch to Greek
+            localStorage.setItem('language', 'GR');
+            switchLanguageToGreek();
+        } else {
+            // Switch to English
+            localStorage.setItem('language', 'EN');
+            switchLanguageToEnglish();
+        }
     }
 
-    // Add fade-out class to trigger transition effect
-    elements.forEach(function(el) {
-        el.classList.add('fade-out');
-    });
+    // Function to switch language to English
+    function switchLanguageToEnglish() {
+        var currentPath = window.location.pathname;
+        var newPath;
+        if (currentPath.includes('_gr')) {
+            newPath = currentPath.replace('_gr', '');
+        } else {
+            newPath = currentPath;
+        }
+        window.location.href = newPath;
+    }
 
-    // Refresh the page after changing the language (optional)
-    window.location.reload();
-}
+    // Function to switch language to Greek
+    function switchLanguageToGreek() {
+        var currentPath = window.location.pathname;
+        var newPath;
+        if (currentPath.includes('.html')) {
+            newPath = currentPath.replace('.html', '_gr.html');
+        } else {
+            newPath = currentPath + '_gr.html';
+        }
+        window.location.href = newPath;
+    }
 
+    // Function to initialize language toggle based on saved preference
+    function initializeLanguageToggle() {
+        var savedLanguage = localStorage.getItem('language');
+        var btn = document.getElementById('language-btn');
+        var langEn = document.getElementById('lang-en');
+        var langGr = document.getElementById('lang-gr');
 
+        // Set initial language based on saved preference or default to English
+        var isEnglish = savedLanguage === 'EN' || !savedLanguage; // Default to English if no preference is saved
 
-function initializeLanguageToggle() {
-    var savedLanguage = localStorage.getItem('language');
-    console.log("Saved language:", savedLanguage);
+        // Update UI based on initial language
+        btn.classList.toggle('active', isEnglish);
+        langEn.classList.toggle('active-lang', isEnglish);
+        langGr.classList.toggle('active-lang', !isEnglish);
 
-    var btn = document.getElementById('language-btn');
-    var langEn = document.getElementById('lang-en');
-    var langGr = document.getElementById('lang-gr');
+        // Update content of text elements based on the saved language
+        var elements = document.querySelectorAll('[data-gr]');
+        elements.forEach(function(el) {
+            var enText = el.getAttribute('data-en') || el.textContent.trim();
+            var grText = el.getAttribute('data-gr').trim();
+            el.textContent = isEnglish ? enText : grText; // Update text content based on the saved language
+        });
+    }
 
-    // Set the initial language based on the saved preference
-    var isEnglish = savedLanguage === 'EN'; // Check if the saved language is English
-    console.log("Is English:", isEnglish);
+    // Event listener for the language toggle button
+    var languageBtn = document.getElementById('language-btn');
+    if (languageBtn) {
+        languageBtn.addEventListener('click', toggleLanguage);
+    }
 
-    btn.classList.toggle('active', isEnglish);
-    langEn.classList.toggle('active-lang', isEnglish);
-    langGr.classList.toggle('active-lang', !isEnglish);
-
-    // Update the text elements to the saved language
-    var elements = document.querySelectorAll('[data-gr]');
-    elements.forEach(function(el) {
-        var enText = el.getAttribute('data-en') || el.textContent.trim();
-        var grText = el.getAttribute('data-gr').trim();
-        el.textContent = isEnglish ? enText : grText; // Update text content based on the saved language
-    });
-}
-document.addEventListener('DOMContentLoaded', initializeLanguageToggle);
+    // Initialize language toggle on page load
+    initializeLanguageToggle();
+});
