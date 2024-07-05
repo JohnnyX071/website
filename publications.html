@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,11 +13,16 @@
     <link rel="stylesheet" href="assets/plugins/testimonial/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/plugins/testimonial/css/owl.theme.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- New Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<!-- ################# Header Starts Here#######################--->
 <header id="menu-jk">
     <button id="language-btn" class="active" onclick="toggleLanguage()">
         <span id="lang-en" class="active-lang">EN</span>
@@ -28,7 +33,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-4 col-sm-12">
                     <img src="assets/images/logo.jpg" alt="Logo">
-                    <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
+                    <a data-toggle="collapse" data-target="#menu" href="#menu"><i
+                            class="fas d-block d-md-none small-menu fa-bars"></i></a>
                 </div>
                 <div id="menu" class="col-lg-9 col-md-8 d-none d-md-block no-padding">
                     <ul class="nav">
@@ -46,8 +52,8 @@
     </nav>
 </header>
 
-<!--  ************************* Page Title Starts Here ************************** -->
-<div class="page-nav no-margin row">
+<!-- Our Categories Section -->
+<section class="page-nav no-margin row">
     <div class="container">
         <div class="row">
             <h2>Publications</h2>
@@ -57,92 +63,73 @@
             </ul>
         </div>
     </div>
-</div>
-
-<!-- ######## Page  Title End ####### -->
-
+</section>
 <section class="our-blog container-fluid">
-    <div class="container">
-        <div class="col-sm-12 blog-cont">
-            <div class="row no-margin">
-                <div class="col-sm-6 blog-smk">
-                    <div class="blog-single">
-                        <img src="assets/images/blog/post_1.jpg" alt="">
-                        <div class="blog-single-det">
-                            <h4>Articles in scientific journals</h4>
-                            <p>Not the answer you're looking for? Browse other questions tagged is simply dummy text of the printing and typesetting in</p>
-                            <a href="articles.html">
-                                <button class="btn btn-success btn-sm">More Detail</button>
-                            </a>
-                        </div>
+    <div id="resource-section">
+        <div class="container">
+            <div class="categories">
+                <!-- Category: Interpersonal Relationships -->
+                <div class="category interpersonal">
+                    <div class="category-image"
+                    style="background-image: url('assets/images/publications/relationships.jpg');">
                     </div>
-                </div>
-                <div class="col-sm-6 blog-smk">
-                    <div class="blog-single">
-                        <img src="assets/images/blog/post_2.jpg" alt="">
-                        <div class="blog-single-det">
-                            <h6>Books</h6>
-                            <p>Not the answer you're looking for? Browse other questions tagged is simply dummy text of the printing and typesetting in</p>
-                            <a href="books.html">
-                                <button class="btn btn-success btn-sm">More Detail</button>
-                            </a>
-                        </div>
+                    <div class="category-header">
+                        <h2>Interpersonal Relationships</h2>
                     </div>
-                </div>
-                <div class="col-sm-6 blog-smk">
-                    <div class="blog-single">
-                        <img src="assets/images/blog/post_3.jpg" alt="">
-                        <div class="blog-single-det">
-                            <span>Nov 12, 2018</span>
-                            <h6>By Gods Grace</h6>
-                            <p>Not the answer you're looking for? Browse other questions tagged is simply dummy text of the printing and typesetting in</p>
-                            <a href="blog_single.html">
-                                <button class="btn btn-success btn-sm">More Detail</button>
-                            </a>
-                        </div>
+                    <div class="category-content">
+                        <ul class="options">
+                            <li><a href="articles.html">Articles in scientific journals</a></li>
+                            <li><a href="books.html">Books</a></li>
+                        </ul>
                     </div>
+                    <button class="btn">Explore Resources</button>
                 </div>
-                <div class="col-sm-6 blog-smk">
-                    <div class="blog-single">
-                        <img src="assets/images/blog/post_4.jpg" alt="">
-                        <div class="blog-single-det">
-                            <span>Nov 12, 2018</span>
-                            <h6>By Gods Grace</h6>
-                            <p>Not the answer you're looking for? Browse other questions tagged is simply dummy text of the printing and typesetting in</p>
-                            <button class="btn btn-success btn-sm">More Detail</button>
-                        </div>
+
+                <!-- Category: Older Adults -->
+                <div class="category older-adults">
+                    <div class="category-image"
+                    style="background-image: url('assets/images/publications/old.jpg');">
                     </div>
-                </div>
-                <div class="col-sm-6 blog-smk">
-                    <div class="blog-single">
-                        <img src="assets/images/blog/post_5.jpg" alt="">
-                        <div class="blog-single-det">
-                            <span>Nov 12, 2018</span>
-                            <h6>By Gods Grace</h6>
-                            <p>Not the answer you're looking for? Browse other questions tagged is simply dummy text of the printing and typesetting in</p>
-                            <a href="blog_single.html">
-                                <button class="btn btn-success btn-sm">More Detail</button>
-                            </a>
-                        </div>
+                    <div class="category-header">
+                        <h2>Older People</h2>
                     </div>
-                </div>
-                <div class="col-sm-6 blog-smk">
-                    <div class="blog-single">
-                        <img src="assets/images/blog/post_6.jpg" alt="">
-                        <div class="blog-single-det">
-                            <span>Nov 12, 2018</span>
-                            <h6>By Gods Grace</h6>
-                            <p>Not the answer you're looking for? Browse other questions tagged is simply dummy text of the printing and typesetting in</p>
-                            <a href="blog_single.html">
-                                <button class="btn btn-success btn-sm">More Detail</button>
-                            </a>
-                        </div>
+                    <div class="category-content">
+                        <ul class="options">
+                            <li><a href="#">Articles in scientific journals</a></li>
+                        </ul>
                     </div>
+                    <button class="btn">Explore Resources</button>
                 </div>
+
+                <!-- Category: Traumatic Experiences -->
+                <div class="category trauma">
+                    <div class="category-image"
+                    style="background-image: url('assets/images/publications/stress.jpg');">
+                    </div>
+                    <div class="category-header">
+                        <h2>Traumatic Experiences</h2>
+                    </div>
+                    <div class="category-content">
+                        <ul class="options">
+                            <li><a href="#">Articles in scientific journals</a></li>
+                        </ul>
+                    </div>
+                    <button class="btn">Explore Resources</button>
+                </div>
+            </div>
+
+            <!-- Expanded content container -->
+            <div class="expanded-container">
+                <div class="expanded-content">
+                    <!-- Content of the expanded category will appear here -->
+                </div>
+                <button class="close-btn">Close Resources</button>
             </div>
         </div>
     </div>
 </section>
+
+<!-- End Our Categories Section -->
 
 <footer class="footer">
     <div class="container">
@@ -174,11 +161,11 @@
                     Email: <a href="mailto:info@anybiz.com" class="">info@bluedart.in</a><br>
                     Web: <a href="smart-eye.html" class="">www.bluedart.in</a>
                 </address>
-
             </div>
         </div>
     </div>
 </footer>
+
 <div class="copy">
     <div class="container">
         <a href="https://www.smarteyeapps.com/">2015 &copy; All Rights Reserved | Designed and Developed by Smarteyeapps</a>
@@ -199,6 +186,9 @@
 <script src="assets/plugins/testimonial/js/owl.carousel.min.js"></script>
 <script src="assets/js/script.js"></script>
 <script src="assets/js/language-toggle.js"></script>
+
+<!-- New Script -->
+<script src="scripts.js"></script>
 
 </body>
 
