@@ -62,3 +62,33 @@ $(this).removeClass("active");
 $(this).addClass("active");
 
 });
+
+
+// Publications
+var buttons = document.querySelectorAll('.btn');
+var expandedContainer = document.querySelector('.expanded-container');
+var expandedContent = document.querySelector('.expanded-content');
+var closeBtn = document.querySelector('.close-btn');
+
+buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        var category = this.closest('.category');
+        var content = category.querySelector('.category-content').innerHTML;
+
+        // Populate expanded content with the content of the clicked category
+        expandedContent.innerHTML = content;
+
+        // Show expanded container
+        expandedContainer.style.display = 'block';
+    });
+});
+
+// Close expanded container when close button is clicked
+closeBtn.addEventListener('click', function() {
+    expandedContainer.style.display = 'none';
+
+    // Reset all category buttons to "Explore Resources"
+    buttons.forEach(function(button) {
+        button.textContent = 'Explore Resources';
+    });
+});

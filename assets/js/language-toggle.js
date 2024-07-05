@@ -20,10 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function switchLanguageToEnglish() {
         var currentPath = window.location.pathname;
         var newPath;
-        if (currentPath === "/" || currentPath === "/website/" || currentPath.endsWith('/')) {
-            newPath = currentPath + "index.html";
-        } else if (currentPath.includes('_gr')) {
-            newPath = currentPath.replace('_gr', '');
+        if (currentPath.endsWith('/') || currentPath.endsWith('/index_gr.html')) {
+            newPath = currentPath.replace('/index_gr.html', '/index.html');
+            if (newPath.endsWith('/')) {
+                newPath += 'index.html';
+            }
+        } else if (currentPath.includes('_gr.html')) {
+            newPath = currentPath.replace('_gr.html', '.html');
         } else {
             newPath = currentPath;
         }
@@ -34,9 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function switchLanguageToGreek() {
         var currentPath = window.location.pathname;
         var newPath;
-        if (currentPath === "/" || currentPath === "/website/" || currentPath.endsWith('/')) {
-            newPath = currentPath + "index_gr.html";
-        } else if (currentPath.includes('.html')) {
+        if (currentPath.endsWith('/') || currentPath.endsWith('/index.html')) {
+            newPath = currentPath.replace('/index.html', '/index_gr.html');
+            if (newPath.endsWith('/')) {
+                newPath += 'index_gr.html';
+            }
+        } else if (currentPath.includes('.html') && !currentPath.includes('_gr.html')) {
             newPath = currentPath.replace('.html', '_gr.html');
         } else {
             newPath = currentPath + '_gr.html';
@@ -66,6 +72,14 @@ document.addEventListener('DOMContentLoaded', function() {
             var grText = el.getAttribute('data-gr').trim();
             el.textContent = isEnglish ? enText : grText; // Update text content based on the saved language
         });
+
+        // Check if the current path matches the saved language
+        var currentPath = window.location.pathname;
+        if (isEnglish && (currentPath.endsWith('/index_gr.html') || currentPath.includes('_gr.html'))) {
+            switchLanguageToEnglish();
+        } else if (!isEnglish && (currentPath.endsWith('/index.html') || currentPath.includes('.html') && !currentPath.includes('_gr.html'))) {
+            switchLanguageToGreek();
+        }
     }
 
     // Event listener for the language toggle button

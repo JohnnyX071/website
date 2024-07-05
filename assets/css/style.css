@@ -227,42 +227,48 @@ body {
 
 /*========language button toggle=========*/
 body {
-  margin: 0; /* Ensure no default margins */
+  margin: 0;
 }
 
 #language-btn {
   background: #ffffff;
   border: 2px solid #007bff;
-  border-radius: 20px;
-  padding: 5px;
+  border-radius: 25px;
+  padding: 3px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  width: auto; /* Adjusted to auto for dynamic sizing */
-  transition: background-color 0.3s ease;
-  outline: none; /* Remove black outline on focus */
-  position: absolute;
-  top: 20px; /* Adjust the top distance as needed */
-  left: 20px; /* Adjust the left distance as needed */
-  z-index: 1000; /* Ensure the button stays above other elements */
+  width: auto;
+  transition: all 0.3s ease;
+  outline: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+
+#language-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
 
 #language-btn:focus-visible {
-  box-shadow: 0 0 0 2px #007bff; /* Add focus indicator */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
 #language-btn span {
   font-size: 14px;
   font-weight: bold;
-  padding: 5px 10px;
-  transition: color 0.3s ease;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
 }
 
 #language-btn .active-lang {
   color: #ffffff;
   background-color: #007bff;
-  border-radius: 15px;
+  border-radius: 22px;
 }
 
 #language-btn span:not(.active-lang) {
@@ -270,15 +276,184 @@ body {
   background-color: transparent;
 }
 
-#lang-en {
-  border-top-left-radius: 20px; /* Adjusted for consistency */
-  border-bottom-left-radius: 20px; /* Adjusted for consistency */
+#language-btn span:not(.active-lang):hover {
+  background-color: rgba(0, 123, 255, 0.1);
 }
 
-#lang-gr {
-  border-top-right-radius: 20px; /* Adjusted for consistency */
-  border-bottom-right-radius: 20px; /* Adjusted for consistency */
+#lang-en, #lang-gr {
+  border-radius: 22px;
 }
+
+/*================================== Publications ===================================*/
+
+#resource-section {
+  --primary-color: #00ab9fe6;
+  --secondary-color: #2c3e50;
+  --accent-color: #e74c3c;
+  --background-color: #f0f4f8;
+  --card-background: #ffffff;
+  --text-color: #34495e;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#resource-section body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 40px 20px;
+}
+
+#resource-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#resource-section h1 {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+#resource-section h1::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 20px auto 0;
+}
+
+#resource-section .categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+#resource-section .category {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+#resource-section .category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+#resource-section .category-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+#resource-section .category h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+#resource-section .category-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+#resource-section .category-content {
+  padding: 20px;
+  display: none;
+  background-color: var(--card-background);
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#resource-section .options {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#resource-section .options li {
+  margin-bottom: 15px;
+}
+
+#resource-section .options a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: var(--transition);
+  display: block;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#resource-section .options a:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#resource-section .btn {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 0 0 12px 12px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px 24px;
+  transition: var(--transition);
+  display: block;
+  width: 100%;
+}
+
+#resource-section .btn:hover {
+  background-color: var(--secondary-color);
+}
+
+#resource-section .expanded-container {
+  display: none;
+  margin-top: 30px;
+}
+
+#resource-section .expanded-content {
+  background-color: var(--card-background);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+#resource-section .close-btn {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#resource-section .close-btn:hover {
+  background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  #resource-section .categories {
+      grid-template-columns: 1fr;
+  }
+}
+
 
 /*==================================== Articles =====================================*/
 /* Main container */
@@ -573,7 +748,8 @@ ul li a:hover::after {
 
 .slider-text {
   margin-bottom: 20px;
-  color: #fff; }
+  color: #fff;
+  font-size: 20px; }
 
 .slider-img {
   background: -moz-linear-gradient(top, rgba(45, 32, 44, 0.5) 0%, rgba(45, 32, 44, 0.5) 100%);
@@ -652,7 +828,7 @@ ul li a:hover::after {
   margin: auto; }
 
 .our-blog {
-  padding: 50px;
+  padding: 20px;
   background-color: #FFF;
   padding-bottom: 100px; }
   @media screen and (max-width: 940px) {
