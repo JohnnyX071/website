@@ -462,6 +462,9 @@ body {
   }
 }
 
+.category {
+    position: relative;
+}
 
 /*==================================== Articles =====================================*/
 /* Main container */

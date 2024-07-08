@@ -80,6 +80,9 @@ buttons.forEach(function(button) {
 
         // Show expanded container
         expandedContainer.style.display = 'block';
+
+        // Auto-scroll to expanded container (scroll to center of viewport)
+        expandedContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 });
 
@@ -92,3 +95,4 @@ closeBtn.addEventListener('click', function() {
         button.textContent = 'Explore Resources';
     });
 });
+
