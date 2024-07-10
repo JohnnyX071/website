@@ -17,8 +17,8 @@
 
 <body>
 
-       <!-- ################# Header Starts Here#######################--->
-       <header id="menu-jk">
+    <!-- ################# Header Starts Here#######################--->
+    <header id="menu-jk">
         <button id="language-btn" class="active" onclick="toggleLanguage()">
             <span id="lang-en" class="active-lang">EN</span>
             <span id="lang-gr">GR</span>
@@ -45,69 +45,50 @@
             </div>
         </nav>
     </header>
-    
-     <!--  ************************* Page Title Starts Here ************************** -->
-               <div class="page-nav no-margin row">
-                   <div class="container">
-                       <div class="row">
-                           <h2>About Spinta Clinic</h2>
-                           <ul>
-                               <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
-                               <li><i class="fas fa-angle-double-right"></i> About Us</li>
-                           </ul>
-                       </div>
-                   </div>
-               </div>
-       
-         <!-- ######## Page  Title End ####### -->
-         
-        <!-- ################# Our Session Starts Here#######################--->  	
-  	
-  	<section class="sesion-type">
-  	    <div class="container">
-           
-  	        <div class="row">
-  	            <div class="col-md-4 col-sm-6">
-  	                <div class="single-sess">
-  	                    <img src="assets/images/session/therapy-1.jpg" alt="">
-  	                    <p>Individual Therapy</p>
-  	                </div>
-  	            </div>
-  	            <div class="col-md-4 col-sm-6">
-  	                <div class="single-sess">
-  	                    <img src="assets/images/session/therapy-2.jpg" alt="">
-  	                    <p>Cuple Therapy</p>
-  	                </div>
-  	            </div>
-  	            <div class="col-md-4 col-sm-6">
-  	                <div class="single-sess">
-  	                    <img src="assets/images/session/therapy-3.jpg" alt="">
-  	                    <p>online Session</p>
-  	                </div>
-  	            </div>
-  	            <div class="col-md-4 col-sm-6">
-  	                <div class="single-sess">
-  	                    <img src="assets/images/session/therapy-4.jpg" alt="">
-  	                    <p>Group Therapy</p>
-  	                </div>
-  	            </div>
-  	            <div class="col-md-4 col-sm-6">
-  	                <div class="single-sess">
-  	                    <img src="assets/images/session/therapy-5.jpg" alt="">
-  	                    <p>All Age Group</p>
-  	                </div>
-  	            </div>
-  	            <div class="col-md-4 col-sm-6">
-  	                <div class="single-sess sess-ok">
-  	                   <h4>Start Your Session today</h4>
-  	                    <p>Take the first step on your journey to feeling better. </p>
-  	                    <button class="btn btn-success">Book an Appointment</button>
-  	                </div>
-  	            </div>
-  	        </div>
-  	    </div>
-  	</section>
 
+    <!--  ************************* Page Title Starts Here ************************** -->
+    <div class="page-nav no-margin row">
+        <div class="container">
+            <div class="row">
+                <h2>About Spinta Clinic</h2>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><i class="fas fa-angle-double-right"></i> About Us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ######## Page  Title End ####### -->
+    
+    <!-- ################# Our Questionnaires Starts Here ####################### -->
+    <section class="our-questionnaires container-fluid">
+        <div id="questionnaire-section">
+            <div class="container">
+                <div class="categories">
+                    <div class="category questionnaire-1">
+                        <div class="category-image" style="background-image: url('assets/images/services/q1.jpg');"></div>
+                        <div class="category-header">
+                            <h2>Questionnaire 1</h2>
+                        </div>
+                        <div class="category-content">
+                            <a href="questionnaire1.html" target="_blank" class="btn btn-success hidden-xs">Start Questionnaire</a>
+                        </div>
+                    </div>
+                    <div class="category questionnaire-2">
+                        <div class="category-image" style="background-image: url('assets/images/services/q2.jpg');"></div>
+                        <div class="category-header">
+                            <h2>Questionnaire 2</h2>
+                        </div>
+                        <div class="category-content">
+                            <a href="questionnaire2.html" target="_blank" class="btn btn-success hidden-xs">Start Questionnaire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Our Questionnaires Section -->
 
     <footer class="footer">
         <div class="container">
@@ -139,29 +120,24 @@
                         Email: <a href="mailto:info@anybiz.com" class="">info@bluedart.in</a><br>
                         Web: <a href="smart-eye.html" class="">www.bluedart.in</a>
                     </address>
-
                 </div>
             </div>
         </div>
-        
-
     </footer>
+
     <div class="copy">
-            <div class="container">
-                <a href="https://www.smarteyeapps.com/">2015 &copy; All Rights Reserved | Designed and Developed by Smarteyeapps</a>
-                
-                <span>
+        <div class="container">
+            <a href="https://www.smarteyeapps.com/">2015 &copy; All Rights Reserved | Designed and Developed by Smarteyeapps</a>
+            <span>
                 <a><i class="fab fa-github"></i></a>
                 <a><i class="fab fa-google-plus-g"></i></a>
                 <a><i class="fab fa-pinterest-p"></i></a>
                 <a><i class="fab fa-twitter"></i></a>
                 <a><i class="fab fa-facebook-f"></i></a>
-        </span>
-            </div>
-
+            </span>
         </div>
+    </div>
 </body>
-
 
 <script src="assets/js/jquery-3.2.1.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
@@ -170,6 +146,5 @@
 <script src="assets/plugins/testimonial/js/owl.carousel.min.js"></script>
 <script src="assets/js/script.js"></script>
 <script src="assets/js/language-toggle.js"></script>
-
 
 </html>
