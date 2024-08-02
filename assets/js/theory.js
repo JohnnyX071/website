@@ -1,7 +1,11 @@
+// Function to scroll to a specific unit
 function scrollToUnit(unitId) {
-    const element = document.getElementById(unitId);
-    window.scrollTo({
-        top: element.offsetTop,
-        behavior: 'smooth'
-    });
+    // Get the element by its ID
+    var element = document.getElementById(unitId);
+    
+    // Check if the element exists
+    if (element) {
+        // Scroll smoothly to the element
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
 }
