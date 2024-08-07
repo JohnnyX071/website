@@ -1161,7 +1161,7 @@ html {
   display: flex;
   margin: 0;
   height: calc(100vh - 60px); /* Full viewport height minus header height */
-  margin-top: 30px; /* Space for the header */
+  margin-top: 13px; /* Space for the header */
 }
 
 /* Sidebar */
@@ -1242,12 +1242,14 @@ html {
 
 .theory-content h1, .theory-content h2 {
   color: rgb(0, 0, 0); /* Main section titles in black */
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 .theory-content .unit h2 {
   color: rgb(87, 86, 86); /* Subsection titles in gray */
+  margin-top: 20px;
   margin-bottom: 10px;
-  margin-top: 30px;
 }
 
 .theory-content .unit p {

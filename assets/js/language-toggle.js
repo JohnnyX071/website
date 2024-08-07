@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Determine the current language and switch accordingly
         if (isEnglish) {
+            // Temporarily disable switching to Greek
             // Switch to Greek
-            localStorage.setItem('language', 'GR');
-            switchLanguageToGreek();
+            //localStorage.setItem('language', 'GR');
+            //switchLanguageToGreek();
+            alert('Greek coming soon!');
         } else {
             // Switch to English
             localStorage.setItem('language', 'EN');
@@ -34,20 +36,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Function to switch language to Greek
+    //var currentPath = window.location.pathname;
+    //var newPath;
+
+    //if (currentPath.endsWith('/') || currentPath.endsWith('/index.html')) {
+    //    newPath = currentPath.replace('/index.html', '/index_gr.html');
+    //    if (newPath.endsWith('/')) {
+    //        newPath += 'index_gr.html';
+    //    }
+    //} else if (currentPath.includes('.html') && !currentPath.includes('_gr.html')) {
+    //    newPath = currentPath.replace('.html', '_gr.html');
+    //} else {
+    //    newPath = currentPath + '_gr.html';
+    //}
+
+    //window.location.href = newPath;
+
     function switchLanguageToGreek() {
-        var currentPath = window.location.pathname;
-        var newPath;
-        if (currentPath.endsWith('/') || currentPath.endsWith('/index.html')) {
-            newPath = currentPath.replace('/index.html', '/index_gr.html');
-            if (newPath.endsWith('/')) {
-                newPath += 'index_gr.html';
-            }
-        } else if (currentPath.includes('.html') && !currentPath.includes('_gr.html')) {
-            newPath = currentPath.replace('.html', '_gr.html');
-        } else {
-            newPath = currentPath + '_gr.html';
-        }
-        window.location.href = newPath;
+        alert('Greek coming soon!');
     }
 
     // Function to initialize language toggle based on saved preference
