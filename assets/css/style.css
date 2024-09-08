@@ -1271,3 +1271,18 @@ ol {
 .with-bullets li {
   margin-bottom: 5px;
 }
+
+/*====================================Scroll Animation=============================*/
+
+/* Initially hide elements to animate */
+.animate-pop {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When the element is in view, apply this class */
+.animate-pop.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
