@@ -714,6 +714,185 @@ body {
   animation-delay: 0.2s;
 }
 
+/*==================================== Book Chapters =====================================*/
+/* Main page wrapper */
+.chapter-page-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Grid settings */
+.chaptercontainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+  gap: 25px;
+}
+
+/* Individual chapter card */
+.chaptercard {
+  background-color: var(--card-bg);
+  border: 2px solid #e6e6e6; /* Slight border for distinction */
+  border-radius: 12px; /* Rounded corners */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.chaptercard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Chapter info */
+.chapterinfo {
+  text-align: left;
+}
+
+/* Title styling */
+.chaptertitle {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #00ab9f;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+/* Description styling */
+.chapterdescription {
+  font-size: 1em;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chaptercontainer {
+      grid-template-columns: 1fr; /* One card per row on smaller screens */
+  }
+
+  .chaptertitle {
+      font-size: 1.4em;
+  }
+
+  .chapterdescription {
+      font-size: 0.9em;
+  }
+}
+
+/*==================================== Conferences =====================================*/
+/* Main container */
+.conference-container-wrapper {
+  max-width: 1600px; /* Same max-width as article container */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+.conferenceinfo .conferencetitle {
+  font-size: 22px; /* Same font size as articles */
+}
+
+/* Grid settings for conferences */
+.conferencecontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(550px, 1fr)); /* Same grid layout */
+  gap: 30px; /* Increase gap for more space between conference cards */
+}
+
+/* Individual conference card */
+.conferencecard {
+  border: none;
+  border-radius: 20px; /* More rounded corners for a softer look */
+  background-color: #f4f7f6; /* Lighter background for conferences */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow for a lighter look */
+  transition: transform var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeIn var(--transition-duration) ease forwards;
+  flex: 1 0 500px;
+  border-left: 5px solid #00ab9f; /* Accent line on the left side */
+}
+
+/* Hover effect for conferences */
+.conferencecard:hover {
+  transform: translateY(-15px); /* More pronounced hover effect */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow on hover */
+}
+
+/* Conference info container */
+.conferenceinfo {
+  padding: 25px;
+  text-align: left;
+  flex: 1;
+  background-color: #ffffff; /* White background for better readability */
+  border-radius: 0 0 20px 20px; /* Rounded bottom corners */
+  position: relative;
+  z-index: 2;
+}
+
+/* Title styling */
+.conferencetitle {
+  margin: 10px 0;
+  font-size: 1.5em; /* Slightly larger font for titles */
+  font-weight: bold;
+  color: #333; /* Darker color for better contrast */
+  line-height: 1.4;
+}
+
+/* Description styling */
+.conferencedescription {
+  margin: 10px 0 20px;
+  font-size: 1em;
+  color: #666; /* Lighter gray for description text */
+  line-height: 1.6;
+}
+
+/* Link styling */
+.conference-link {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #444;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+/* Hover effect for "Read More" button */
+.conference-link:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+/* Adjust the font size for better readability */
+.conference-link {
+  font-size: 16px;
+}
+
+/* Ensure the container has relative positioning */
+.conferenceinfo {
+  padding: 20px;
+  position: relative; /* Ensure that the link is positioned correctly */
+}
+
+/* Animation delay */
+.conferencecard:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.conferencecard:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+
 /* ======================================= Books ==================================== */
 /* Book container */
 .book-container {
