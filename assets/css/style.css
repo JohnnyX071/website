@@ -142,7 +142,7 @@ body {
 }
 
 #menu-jk img {
-  margin-top: -5px; /* Adjust the top margin of the logo */
+  margin-top: -10px; /* Adjust the top margin of the logo */
 }
 
 .page-nav {
@@ -1290,7 +1290,7 @@ ul li a:hover::after {
 
 .slider .col-lg-offset-2 {
   float: none;
-  margin: auto;
+  margin-right: 10px;
 }
 
 .our-blog {
@@ -1450,59 +1450,186 @@ ul li a:hover::after {
   text-align: center;
 }
 
-/* ===================================== Fooer CSS ================================== */
+/* ===================================== Footer CSS ================================== */
 .footer {
-  padding: 50px;
-  padding-bottom: 0px;
+  padding: 4rem 0 0;
   background-color: #444;
   color: #fff;
-}
-@media screen and (max-width: 940px) {
-  .footer {
-    padding: 30px 10px;
-  }
-}
-.footer h2 {
-  font-size: 26px;
-  margin-top: 10px;
-}
-.footer p {
-  text-align: justify;
-  text-indent: 20px;
-}
-.footer .link-list li {
-  padding: 10px;
-  border-bottom: 1px solid #6c6c6c;
-}
-.footer .link-list li a {
-  color: #fff;
-}
-.footer .link-list li i {
-  float: right;
-}
-.footer .map-img {
-  font-weight: 600;
-  font-size: 17px;
-  padding-left: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-.copy {
-  padding: 20px;
+.footer-section {
+  margin-bottom: 2.5rem;
+  padding: 0 1.5rem !important;
+  flex: 1;
+  min-width: 300px;
+}
+
+.footer-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-text {
+  text-align: justify;
+  opacity: 0.9;
+  padding-right: 1rem;
+  font-size: 0.95rem;
+}
+
+/* ==================== Quick Links Section ==================== */
+.footer-menu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  display: block;
+  transition: all 0.25s ease;
+  opacity: 0.9;
+  position: relative;
+  width: 100%;
+}
+
+.menu-link:hover {
+  opacity: 1;
+  padding-left: 0.5rem;
+}
+
+.menu-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: width 0.3s ease;
+}
+
+.menu-link:hover::before {
+  width: 100%;
+}
+
+/* ==================== Contact Section ==================== */
+.footer-contact {
+  font-style: normal;
+  padding-right: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  margin-top: 0.25rem;
+  opacity: 0.8;
+  min-width: 1.25rem;
+}
+
+.contact-text,
+.contact-link {
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.contact-link {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+/* ==================== Copyright Section ==================== */
+.copyright {
   background-color: #2e2e2e;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.copyright-text {
+  color: #ffffff;
+}
+.copyright-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.social-link {
   color: #fff;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
 }
-.copy a {
-  color: #fff;
+
+.social-link:hover {
+  opacity: 1;
+  transform: translateY(-2px);
 }
-.copy span {
-  float: right;
+
+/* ==================== Responsive Styles ==================== */
+@media (max-width: 991px) {
+  .row {
+    gap: 2rem;
+  }
+
+  .footer-section {
+    padding: 0 1rem !important;
+  }
 }
-.copy span i {
-  margin-right: 20px;
-}
-@media screen and (max-width: 777px) {
-  .copy span {
-    display: none;
+
+@media (max-width: 767px) {
+  .copyright-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-heading {
+    font-size: 1.1rem;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-text {
+    padding-right: 0;
   }
 }
 
