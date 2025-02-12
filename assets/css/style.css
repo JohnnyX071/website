@@ -181,7 +181,7 @@ body {
 }
 
 .btn-success {
-  background: linear-gradient(145deg, #00ab9f, #009b8f);
+  background: linear-gradient(145deg, #3aa6b9, #009b8f);
   border: none;
   border-radius: 25px;
   color: #fff;
@@ -1167,7 +1167,12 @@ ul li a:hover::after {
 .slider-captions {
   position: absolute;
   bottom: 160px;
+  left: 0;
+  right: 0;
   text-align: center;
+  margin-left: 10rem;
+  margin-right: -10rem;
+  width: fit-content;
 }
 @media screen and (max-width: 1050px) {
   .slider-captions {
@@ -1180,6 +1185,7 @@ ul li a:hover::after {
 @media screen and (max-width: 810px) {
   .slider-captions {
     bottom: 50px !important;
+    max-width: 90%;
   }
   .slider-captions .slider-title {
     font-size: 32px;
@@ -1196,12 +1202,24 @@ ul li a:hover::after {
   font-weight: 600;
   color: #fff;
   letter-spacing: -3px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.btn {
+  margin: 20px auto 0;
+  display: block;
+  width: fit-content;
 }
 
 .slider-text {
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
   color: #fff;
   font-size: 20px;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
 }
 
 .slider-img {
@@ -1267,7 +1285,6 @@ ul li a:hover::after {
   height: 14px;
   margin: 0px 0px 10px 10px;
   filter: Alpha(Opacity=50);
-  /*IE7 fix*/
   opacity: 0.8;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -1284,7 +1301,6 @@ ul li a:hover::after {
 .slider .owl-controls.clickable .owl-page:hover span {
   background-color: #fff;
   filter: Alpha(Opacity=100);
-  /*IE7 fix*/
   opacity: 1;
 }
 
