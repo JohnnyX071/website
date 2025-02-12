@@ -1500,7 +1500,7 @@ ul li a:hover::after {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 
 .menu-link {
@@ -1537,7 +1537,6 @@ ul li a:hover::after {
 /* ==================== Contact Section ==================== */
 .footer-contact {
   font-style: normal;
-  padding-right: 1rem;
 }
 
 .contact-item {
