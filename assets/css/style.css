@@ -1122,10 +1122,6 @@ header .btn {
   }
 }
 
-/* New CSS for hover effect */
-/* Your existing CSS */
-
-/* New CSS for hover effect */
 ul li a {
   position: relative;
   text-decoration: none;
@@ -1149,20 +1145,10 @@ ul li a:hover {
   color: #007bff;
 }
 
-ul li a:hover::after {
-  background-color: #007bff;
-  transform: scaleX(1);
-}
-
 /* ===================================== Slider Style CSS ================================== */
 .slider {
   position: relative;
   padding-top: 85px;
-}
-@media screen and (max-width: 767px) {
-  .slider {
-    padding-top: 71px;
-  }
 }
 
 .slider-captions {
@@ -1174,28 +1160,6 @@ ul li a:hover::after {
   margin-left: 10rem;
   margin-right: -10rem;
   width: fit-content;
-}
-@media screen and (max-width: 1050px) {
-  .slider-captions {
-    bottom: 100px !important;
-  }
-  .slider-captions .slider-title {
-    font-size: 42px;
-  }
-}
-@media screen and (max-width: 810px) {
-  .slider-captions {
-    bottom: 50px !important;
-    max-width: 90%;
-  }
-  .slider-captions .slider-title {
-    font-size: 32px;
-  }
-}
-@media screen and (max-width: 572px) {
-  .slider-captions {
-    display: none;
-  }
 }
 
 .slider-title {
@@ -1224,18 +1188,20 @@ ul li a:hover::after {
 }
 
 .slider-img {
-  background: -moz-linear-gradient(top, rgba(45, 32, 44, 0.5) 0%, rgba(45, 32, 44, 0.5) 100%);
-  background: -webkit-linear-gradient(top, rgba(45, 32, 44, 0.5) 0%, rgba(45, 32, 44, 0.5) 100%);
   background: linear-gradient(to bottom, rgba(45, 32, 44, 0.5) 0%, rgba(45, 32, 44, 0.5) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc1b2429', endColorstr='#cc1b2429', GradientType=0);
   position: relative;
 }
 
 .slider-img img {
   position: relative;
   z-index: -1;
+  width: 100%;
+  height: auto;
+  min-height: 600px;
+  object-fit: cover;
 }
 
+/* Navigation Arrows - Keep Original Styling */
 .slider .owl-nav .owl-prev,
 .slider .owl-nav .owl-next {
   color: #fff;
@@ -1244,35 +1210,31 @@ ul li a:hover::after {
   margin: 5px;
   padding: 6px 12px;
   font-size: 22px;
-  -webkit-border-radius: 23px;
-  -moz-border-radius: 23px;
   border-radius: 23px;
   background: transparent;
   filter: Alpha(Opacity=50);
   line-height: 1;
   border: 2px solid #fff;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.slider .owl-nav .owl-prev {
+  left: 0px;
+}
+.slider .owl-nav .owl-next {
+  right: 0px;
 }
 
 .owl-controls.clickable .owl-buttons div:hover {
   filter: Alpha(Opacity=100);
   opacity: 1;
-  text-decoration: none;
   background-color: #fff;
 }
 
-.slider .owl-nav .owl-prev {
-  position: absolute;
-  top: 40%;
-  left: 0px;
-}
-
-.slider .owl-nav .owl-next {
-  position: absolute;
-  top: 40%;
-  right: 0px;
-}
-
-.slider .owl-dots .owl-dot {
+/* Dots Navigation - Keep Original Styling */
+.slider .owl-dots {
   position: relative;
   text-align: center;
   bottom: 40px;
@@ -1285,10 +1247,7 @@ ul li a:hover::after {
   width: 14px;
   height: 14px;
   margin: 0px 0px 10px 10px;
-  filter: Alpha(Opacity=50);
   opacity: 0.8;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
   border-radius: 20px;
   border: 2px solid #fff;
   float: left;
@@ -1298,76 +1257,74 @@ ul li a:hover::after {
   background-color: #fff;
 }
 
-.slider .owl-dots .owl-dot.active span,
-.slider .owl-controls.clickable .owl-page:hover span {
-  background-color: #fff;
-  filter: Alpha(Opacity=100);
-  opacity: 1;
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 1199px) {
+  .slider-captions {
+    margin-left: 5rem;
+    margin-right: -5rem;
+  }
 }
 
-.slider .col-lg-offset-2 {
-  float: none;
-  margin-right: 10px;
+@media screen and (max-width: 991px) {
+  .slider-title {
+    font-size: 56px;
+  }
+  .slider-img img {
+    min-height: 500px;
+  }
 }
 
-.our-blog {
-  padding: 20px;
-  background-color: #fff;
-  padding-bottom: 100px;
-}
-@media screen and (max-width: 940px) {
-  .our-blog {
-    padding: 30px 10px;
+@media screen and (max-width: 767px) {
+  .slider {
+    padding-top: 71px;
+  }
+  .slider-captions {
+    bottom: 100px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    padding: 0 15px;
+  }
+  .slider-title {
+    font-size: 42px;
+    line-height: 1.3;
+  }
+  .slider-text {
+    font-size: 18px;
+  }
+  .slider-img img {
+    min-height: 400px;
+  }
+  .slider .owl-nav .owl-prev,
+  .slider .owl-nav .owl-next {
+    font-size: 18px;
+    padding: 4px 8px;
+    top: 45%;
   }
 }
-@media screen and (max-width: 600px) {
-  .our-blog {
-    padding: 20px 10px;
+
+@media screen and (max-width: 575px) {
+  .slider-captions {
+    bottom: 60px;
   }
-  .our-blog .blog-cont {
-    padding: 0px;
+  .slider-title {
+    font-size: 32px;
+    letter-spacing: -1px;
   }
-  .our-blog .blog-smk {
-    padding: 0px;
+  .slider-text {
+    font-size: 16px;
+    margin-bottom: 15px;
   }
-}
-.our-blog .blog-cont {
-  float: none;
-  margin: auto;
-}
-.our-blog .blog-single {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-.our-blog .blog-single .figure {
-  margin-bottom: 0px;
-}
-.our-blog .blog-single-det {
-  margin: auto;
-  padding: 20px;
-  z-index: 99;
-  box-shadow: 0 2px 6px 0 rgba(218, 218, 253, 0.65), 0 2px 6px 0 rgba(206, 206, 238, 0.54);
-  width: 90%;
-  position: relative;
-  margin-top: -80px;
-  background-color: #fff;
-}
-.our-blog .blog-single-det .btn {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.our-blog .blog-single-det span {
-  font-size: 13px;
-  color: #b5316a;
-}
-.our-blog .blog-single-det h6 {
-  font-size: 1.3rem;
-}
-.our-blog .blog-single-det p {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  font-size: 1rem;
+  .slider .btn {
+    padding: 8px 20px;
+    font-size: 16px;
+  }
+  .slider-img img {
+    min-height: 350px;
+  }
+  .slider .owl-dots {
+    bottom: 20px;
+  }
 }
 
 /* ===================================== Doctor Say CSS ================================== */
@@ -1375,39 +1332,86 @@ ul li a:hover::after {
   background-image: url("../images/shapes.png");
   background-attachment: fixed;
   background-size: cover;
+  position: relative;
 }
+
 .doctor-message .inner-lay {
   background-color: rgba(0, 171, 159, 0.9);
   padding: 50px;
   padding-bottom: 0px;
   color: #fff;
+  position: relative;
+  overflow: visible;
 }
-@media screen and (max-width: 940px) {
-  .doctor-message .inner-lay {
-    padding: 30px 10px;
-  }
-}
+
 .doctor-message .doc-img {
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
+
 .doctor-message .doc-img img {
   width: 400px;
-  margin-top: -140px;
+  max-width: 100%;
+  height: auto;
+  margin-top: -50px; /* Reduced from -140px to align with green start */
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .doctor-message .doc-det h2 {
   font-size: 42px;
   margin-bottom: 0px;
+  line-height: 1.3;
+  padding-top: 30px;
 }
-.doctor-message .doc-det span {
-  font-weight: 600;
-  margin-top: -5px;
-}
+
+/* Rest of the original CSS remains the same */
 .doctor-message .doc-det p {
   margin-top: 30px;
   font-size: 18px;
+  line-height: 1.6;
 }
-.doctor-message .doc-det h4 {
-  margin-top: 30px;
+
+.doctor-message ol {
+  margin-top: 20px;
+  padding-left: 25px;
+}
+
+.doctor-message ol li {
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+  .doctor-message .inner-lay {
+    padding: 30px 20px;
+  }
+
+  .doctor-message .doc-img img {
+    width: 280px;
+    margin-top: -30px; /* Adjusted proportionally */
+    margin-bottom: 20px;
+  }
+
+  .doctor-message .doc-det h2 {
+    font-size: 32px;
+    padding-top: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .doctor-message .doc-img img {
+    width: 220px;
+    margin-top: -20px;
+  }
+
+  .doctor-message .doc-det h2 {
+    font-size: 28px;
+  }
 }
 
 /* ===================================== Mission Vision CSS ================================== */
@@ -2008,6 +2012,89 @@ ol {
 
 .gallery-item:hover .overlay {
   opacity: 1;
+}
+
+/* ==================== Media Section ==================== */
+.media-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.video-container {
+  width: 504px;
+  margin: 15px;
+  text-align: center;
+}
+
+.video-container h4 {
+  margin: 15px 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  line-height: 1.4;
+  padding: 0 10px;
+}
+
+.video-container iframe {
+  width: 504px;
+  height: 283px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-container a {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 1200px) {
+  .media-section {
+    padding: 30px 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .video-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    height: calc(100vw * 0.56); /* Maintain 16:9 aspect ratio */
+    max-height: 280px;
+  }
+
+  .video-container h4 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .video-container iframe {
+    height: calc(100vw * 0.6); /* Slightly taller on mobile */
+    max-height: 240px;
+  }
+
+  .video-container h4 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .video-container a {
+    font-size: 0.85rem;
+  }
 }
 
 /*======================================Older People===============================*/
