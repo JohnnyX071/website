@@ -628,6 +628,22 @@ body {
   margin-bottom: 100px;
 }
 
+/* Mobile stacking for questionnaires */
+@media (max-width: 768px) {
+  #questionnaire-section .categories {
+    flex-direction: column;
+  }
+
+  #questionnaire-section .category {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  #questionnaire-section .category:first-child {
+    margin-top: 0;
+  }
+}
+
 /*==================================== Articles =====================================*/
 /* Main container */
 .article-container-wrapper {
@@ -1072,33 +1088,18 @@ header {
   width: 100%;
   z-index: 9999;
 }
+
 header ul li {
   float: left;
   padding: 30px 20px;
   font-size: 16px;
 }
-@media screen and (max-width: 824px) {
-  header ul li {
-    padding: 30px 16px;
-  }
-}
-@media screen and (max-width: 767px) {
-  header ul li {
-    float: none;
-    padding: 10px;
-    border-top: 1px solid #ccc;
-  }
-}
+
 header img {
   margin-top: 10px;
   max-width: 230px;
 }
-@media screen and (max-width: 767px) {
-  header img {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-}
+
 header .btn {
   margin-top: 22px;
 }
@@ -1115,11 +1116,7 @@ header .btn {
   font-size: 32px;
   margin-top: 19px;
   margin-right: 12px;
-}
-@media screen and (max-width: 405px) {
-  .small-menu {
-    margin-top: 14px;
-  }
+  transition: transform 0.3s ease;
 }
 
 ul li a {
@@ -1143,6 +1140,114 @@ ul li a::after {
 
 ul li a:hover {
   color: #007bff;
+}
+
+/* ============ Mobile Menu Animation Styles ============= */
+@media screen and (max-width: 767px) {
+  #menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  #menu.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .collapsing {
+    transition: all 0.3s ease-out;
+  }
+
+  .collapse:not(.show) {
+    display: none;
+  }
+
+  .collapse.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Mobile Responsive Styles ============ */
+@media screen and (max-width: 824px) {
+  header ul li {
+    padding: 30px 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  header ul.nav {
+    flex-direction: column;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  header ul li {
+    float: none;
+    padding: 12px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: menuItemSlide 0.4s ease forwards;
+  }
+
+  @keyframes menuItemSlide {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  header ul li:first-child {
+    border-top: none;
+  }
+
+  header ul li a {
+    color: #333;
+    font-size: 16px;
+    display: block;
+    padding: 8px 0;
+  }
+
+  header ul li:hover {
+    background: rgba(0, 171, 159, 0.05);
+  }
+
+  .small-menu {
+    font-size: 28px;
+    margin-top: 15px;
+    margin-right: 15px;
+    z-index: 1001;
+  }
+
+  header img {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    max-width: 200px;
+  }
+
+  #language-btn {
+    top: 15px;
+    left: 15px;
+  }
+}
+
+@media screen and (max-width: 405px) {
+  .small-menu {
+    margin-top: 14px;
+  }
 }
 
 /* ===================================== Slider Style CSS ================================== */
@@ -1354,7 +1459,7 @@ ul li a:hover {
   width: 400px;
   max-width: 100%;
   height: auto;
-  margin-top: -50px; /* Reduced from -140px to align with green start */
+  margin-top: -50px;
   position: relative;
   display: block;
   margin-left: auto;
@@ -1368,7 +1473,6 @@ ul li a:hover {
   padding-top: 30px;
 }
 
-/* Rest of the original CSS remains the same */
 .doctor-message .doc-det p {
   margin-top: 30px;
   font-size: 18px;
@@ -1410,7 +1514,7 @@ ul li a:hover {
   }
 
   .doctor-message .doc-det h2 {
-    font-size: 28px;
+    font-size: 24px;
   }
 }
 
@@ -1822,6 +1926,162 @@ ol {
 
 .with-bullets li {
   margin-bottom: 5px;
+}
+
+/* ======== Theory Mobile Styles =========== */
+@media (max-width: 768px) {
+  /* Header Menu Fix */
+  .small-menu {
+    display: block !important;
+    position: fixed !important;
+    top: 20px !important;
+    right: 15px !important;
+    z-index: 10003 !important;
+    color: #00ab9f !important;
+    font-size: 28px !important;
+  }
+
+  header {
+    z-index: 10000 !important;
+    position: relative;
+  }
+
+  /* Theory Header Adjustments */
+  .theory-header h1 {
+    font-size: 1.8rem;
+    padding: 0 15px;
+    text-align: center;
+    margin-top: 80px; /* Increased top margin */
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Centered Left Toggle Button */
+  .sidebar-toggle {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 10001;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0 50% 50% 0;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-toggle::after {
+    content: "☰";
+    font-size: 1.4rem;
+    line-height: 1;
+    transform: translateX(2px);
+  }
+
+  .sidebar-toggle.active::after {
+    content: "✕";
+    transform: translateX(0);
+  }
+
+  /* Side Panel - Fixed width mismatch */
+  .theory-sidebar {
+    width: 250px; /* Consistent width */
+    left: -250px; /* Matches width */
+    top: 60px; /* Below header */
+    height: calc(100vh - 60px);
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+    z-index: 9999;
+    background: white;
+    border-right: 2px solid #e9ecef;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px 12px;
+    position: fixed;
+    overflow-y: auto;
+  }
+
+  .theory-sidebar.active {
+    transform: translateX(250px); /* Matches width */
+  }
+
+  /* Content Area Adjustments */
+  .theory-content {
+    margin-left: 0;
+    padding: 15px;
+    transition: margin-left 0.3s ease;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+  }
+
+  .theory-sidebar.active ~ .theory-content {
+    margin-left: 250px; /* Matches sidebar width */
+  }
+
+  /* Typography */
+  .theory-content h1 {
+    font-size: 1.6rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+
+  .theory-content h2 {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    margin: 1.2rem 0;
+    color: #444;
+  }
+
+  .theory-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Images */
+  .theory-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 1.2rem auto;
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Lists */
+  .theory-content ol,
+  .theory-content ul {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .theory-content li {
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+    padding-left: 0.3rem;
+  }
+
+  /* Sidebar Navigation Items */
+  .theory-sidebar .main-section button {
+    padding: 10px 12px;
+    font-size: 14px;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  .theory-sidebar .sub-sections button {
+    font-size: 13px;
+    padding: 8px 10px;
+    margin-left: 8px;
+    width: calc(100% - 8px);
+  }
 }
 
 /*===================================== My positions ===============================*/
