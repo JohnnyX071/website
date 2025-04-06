@@ -936,6 +936,62 @@ body {
   animation-delay: 0.2s;
 }
 
+/* ============= Publications Mobile Styles =============== */
+@media (max-width: 768px) {
+  /* Articles Grid Adjustment */
+  .articlecontainer {
+    grid-template-columns: minmax(300px, 1fr) !important;
+  }
+  .articlecard {
+    flex: 1 0 100% !important;
+    max-width: 100% !important;
+    margin: 10px 0 !important;
+  }
+
+  /* Book Chapters Grid Adjustment */
+  .chaptercontainer {
+    grid-template-columns: 1fr !important;
+  }
+  .chaptercard {
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+
+  /* Conferences Grid Adjustment */
+  .conferencecontainer {
+    grid-template-columns: minmax(300px, 1fr) !important;
+  }
+  .conferencecard {
+    flex: 1 0 100% !important;
+    max-width: 100% !important;
+    margin: 10px 0 !important;
+  }
+
+  /* General Card Adjustments */
+  .articlecard,
+  .chaptercard,
+  .conferencecard {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Text Adjustments */
+  .articletitle,
+  .chaptertitle,
+  .conferencetitle {
+    font-size: 1.2rem !important;
+  }
+
+  /* Read More Button Adjustments */
+  .articlelink,
+  .conference-link {
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+    bottom: 15px !important;
+    right: 15px !important;
+  }
+}
+
 /* ======================================= Media ==================================== */
 
 .video-container h4 {
